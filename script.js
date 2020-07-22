@@ -50,6 +50,7 @@ window.addEventListener("load", function(){
                }
          // shuttle requirements
                if (testLaunchReadiness === true) {
+                  console.log("ready to print launch readiness in the html")
                   let pilotStatus = document.getElementById("pilotStatus");
                   pilotStatus.innerHTML = "Pilot Name: "+ pilotInput.value;
                }
