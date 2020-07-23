@@ -45,20 +45,17 @@ window.addEventListener("load", function(){
                event.preventDefault();
                   } 
 
-               } else {
-                  let testLaunchReadiness = true;
                }
-         // shuttle requirements
-               if (testLaunchReadiness === true) {
-                  console.log("ready to print launch readiness in the html")
-                  let pilotStatus = document.getElementById("pilotStatus");
-                  pilotStatus.innerHTML = "Pilot Name: "+ pilotInput.value;
-               }
-             
-            
+
+
             
 
          });
+
+         if (fuelInput.value < 10000) {
+            let faultyItems = document.getElementById("faultyItems");
+            faultyItems.style.visibility = "visible";
+         }
 
 
 });
