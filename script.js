@@ -1,25 +1,19 @@
 // Write your JavaScript code here!
 window.addEventListener("load", function(){
    let form = document.querySelector("form");
+   let pilotInput = document.getElementById("pilotName");
+   let coPilotInput = document.getElementById("copilotName");
+   let fuelInput = document.getElementById("fuelLevel");
+   let massInput = document.getElementById("cargoMass");
+
       form.addEventListener("submit", function(){
-         let pilotInput = document.getElementById("pilotName");
-         let coPilotInput = document.getElementById("copilotName");
-         let fuelInput = document.getElementById("fuelLevel");
-         //fuelInput.value = Number(fuelInput.value);
-         let massInput = document.getElementById("cargoMass");
-         //massInput.value = Number(massInput.value);
-         /*
-         console.log("pilot name: " pilotInput.value);
-         console.log("copilot name: " + coPilotInput.value);
-         console.log("fuel input amount: " + fuelInput.value);
-         console.log("mass input amount: " + massInput.value);
-         (coPilotInput.value === "") || (fuelInput.value === "") || (massInput.value === "")
-         */
+
         // validation town
+
             if (pilotInput.value === "" || coPilotInput.value === "" || fuelInput.value === "" || massInput.value === ""){
                alert("All fields are required");
                event.preventDefault();
-               } else {
+               } 
 
                massInput.value = Number(massInput.value);
                fuelInput.value = Number(fuelInput.value);
@@ -45,20 +39,17 @@ window.addEventListener("load", function(){
                event.preventDefault();
                   } 
 
-               }
-
-
-            
-
+        // faulty input styling and content
+               if (fuelInput.value < 10000)  {
+                  let faultyItems = document.getElementById("faultyItems");
+                  faultyItems.style.visibility = "visible";
+                      }      
+               }); 
+             
          });
 
-         if (fuelInput.value < 10000) {
-            let faultyItems = document.getElementById("faultyItems");
-            faultyItems.style.visibility = "visible";
-         }
 
 
-});
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
 <ol>
