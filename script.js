@@ -7,6 +7,28 @@ window.addEventListener("load", function(){
    let massInput = document.getElementById("cargoMass");
    let readyToTest;
 
+   let pilotNameTest = {
+      "test": (isNaN(pilotInput.value)),
+      "error": "Input a string for the name of the pilot, Elon. "
+   };
+
+   let coPilotNameTest = {
+      "test": (isNaN(coPilotInput.value)),
+      "error": "Input a string for the name of the copilot, Elon. "
+   };
+   let fuelNumberTest = {
+      "test": (!isNaN(fuelInput.value)),
+      "error": "Input a valid number for the fuel level. "
+   };
+   let massNumberTest = {
+      "test": (!isNaN(massInput.value)),
+      "error": "Input a valid number for the cargo mass. "
+   };
+
+   let testArray = [pilotNameTest, coPilotNameTest, fuelNumberTest, massNumberTest];
+   let errorArray = [];
+   let testedTests = [];
+
       form.addEventListener("submit", function(){
 
         // validation town
@@ -15,9 +37,33 @@ window.addEventListener("load", function(){
                alert("All fields are required");
                event.preventDefault();
                } else if (pilotInput.value != "" && coPilotInput.value != "" && fuelInput.value != "" && massInput.value != "") {
+                  if ((Number(pilotInput.value)) != "NaN") {
+                     pilotInput.value = Number(pilotInput.value);
+                  }
+                  if ((Number(coPilotInput.value)) != "NaN") {
+                     coPilotInput.value = Number(pilotInput.value);
+                  }
                   massInput.value = Number(massInput.value);
                   fuelInput.value = Number(fuelInput.value);
+                  console.log(testArray.length);
+
+                  for (i = 0; i < testArray.length; i++) {
+                     testedTests.push(testArray[i].test);
+                     if (testArray[i].test === false) {
+                        errorArray.push(testArray[i].error);
+                     }
+                  }
+                  if (errorArray.length > 0) {
+                     alert(`${errorArray}`);
+                     readyToTest = false;
+                     event.preventDefault();
+                  } else {
+                     readyToTest = true;
+                  }
+                     
                   
+
+                  /*
    
                   if (isNaN(pilotInput.value) === false) {
                   alert("Input a string for the name of the pilot, Elon")
@@ -38,15 +84,23 @@ window.addEventListener("load", function(){
                   alert("Input a valid number for the cargo mass")
                   event.preventDefault();
                      } 
+                    
+
 
                   if ((isNaN(pilotInput.value) === true) && (isNaN(coPilotInput.value) === true) && (isNaN(fuelInput.value) === false) && (isNaN(massInput.value) === false)) {
                      readyToTest = true;
 
                   }
+                   */
 
                }
 
-               console.log(`ready to test is ${readyToTest}`);       
+               console.log(`ready to test is ${readyToTest}`);   
+               console.log(errorArray);    
+               console.log(isNaN(coPilotInput.value))
+               console.log(pilotInput.value);
+               console.log(coPilotInput.value);
+               console.log(testedTests);
 
      
                }); 
