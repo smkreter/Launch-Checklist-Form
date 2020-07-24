@@ -37,10 +37,10 @@ window.addEventListener("load", function(){
                alert("All fields are required");
                event.preventDefault();
                } else if (pilotInput.value != "" && coPilotInput.value != "" && fuelInput.value != "" && massInput.value != "") {
-                  if ((Number(pilotInput.value)) != "NaN") {
+                  if ((Number(pilotInput.value)) != NaN) {
                      pilotInput.value = Number(pilotInput.value);
                   }
-                  if ((Number(coPilotInput.value)) != "NaN") {
+                  if ((Number(coPilotInput.value)) != NaN) {
                      coPilotInput.value = Number(pilotInput.value);
                   }
                   massInput.value = Number(massInput.value);
