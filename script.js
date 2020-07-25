@@ -2,7 +2,6 @@
 window.addEventListener("load", function(){
    let form = document.querySelector("form");
    let readyToTest;
-   let checklistSubmissionReturnObject = {};
 
       form.addEventListener("submit", function(){
          /*
@@ -19,7 +18,11 @@ window.addEventListener("load", function(){
    let coPilotInput = document.getElementById("copilotName");
    let fuelInput = document.getElementById("fuelLevel");
    let massInput = document.getElementById("cargoMass");
+   let faultyItems = document.getElementById("faultyItems");
+   let pilotStatus = document.getElementById("pilotStatus");
+   let copilotStatus = document.getElementById("copilotStatus");
 
+   // Validation Test Objects
 
    let pilotNameTest = {
       "test": (isNaN(pilotInput.value)),
@@ -50,7 +53,8 @@ window.addEventListener("load", function(){
                alert("All fields are required");
                event.preventDefault();
                }else {
-   //The right value types are required
+         //The right value types are required
+
                // pilot name should not be a number
                let pilotInputTesterVariable = (Number(pilotInput.value));
                //console.log(pilotInputTesterVariable);
@@ -88,7 +92,7 @@ window.addEventListener("load", function(){
                } else {
                   readyToTest = true;
                }
-         
+               // Printing out the values to see that we get what's expected
                console.log(`For pilotInput, the value is ${pilotInput.value} and the type of the value is ${typeof pilotInput.value}.`);
                console.log(`For coPilotInput, the value is ${coPilotInput.value} and the type of the value is ${typeof coPilotInput.value}.`);
                console.log(`For massInput, the value is ${massInput.value} and the type of the value is ${typeof massInput.value}.`);
@@ -102,7 +106,14 @@ window.addEventListener("load", function(){
                // console.log(testedTests);
 
    
-
+               // faulty input styling and content
+                  if (readyToTest === true) {
+                        faultyItems.style.visibility = "visible";
+                        pilotStatus.innerHTML = `Pilot ${pilotInput.value} is ready for launch`;
+                        copilotStatus.innerHTML = `Co-Pilot ${copilotStatus.value} is ready for launch`;                    
+                           
+                               }                                       
+                           
 
 
 
@@ -112,13 +123,7 @@ window.addEventListener("load", function(){
 // else if all of the inputs are inputted
                }
                
-                                           // faulty input styling and content
-                                           if (readyToTest === true) {
-                                             if (fuelInput.value < 10000)  {
-                                                let faultyItems = document.getElementById("faultyItems");
-                                                faultyItems.style.visibility = "visible";
-                                                    }  
-                                             }
+
 
 
 // the submission event listener
