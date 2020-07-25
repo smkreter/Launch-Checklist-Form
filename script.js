@@ -91,6 +91,7 @@ window.addEventListener("load", function(){
                   event.preventDefault();
                } else {
                   readyToTest = true;
+                  event.preventDefault();
                }
                // Printing out the values to see that we get what's expected
                console.log(`For pilotInput, the value is ${pilotInput.value} and the type of the value is ${typeof pilotInput.value}.`);
@@ -111,7 +112,7 @@ window.addEventListener("load", function(){
                         faultyItems.style.visibility = "visible";
                         pilotStatus.innerHTML = `Pilot ${pilotInput.value} is ready for launch`;
                         copilotStatus.innerHTML = `Co-Pilot ${copilotStatus.value} is ready for launch`;                    
-                           
+
                                }                                       
                            
 
