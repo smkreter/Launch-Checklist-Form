@@ -4,29 +4,31 @@ window.addEventListener("load", function(){
    let readyToTest;
 
 // Destination info
-/*
-   fetch.("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+
+   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
       return response.json();
       }).then(function(json){
          let missionTarget = document.getElementById("missionTarget");
+         console.log(json);
          let planet = json[0];
-         for (planet) {
-         missionTarget +=`
-         <div class="missionTarget>
+         console.log(planet);
+         console.log(planet.name);
+        
+          
+         missionTarget.innerHTML += `
             <h2>Mission Destination</h2>
                <ol>
-                  <li>Name: ${}</li>
-                  <li>Diameter: ${}</li>
-                  <li>Star: ${}</li>
-                   <li>Distance from Earth: ${}</li>
-                  <li>Number of Moons: ${}</li>
+                  <li>Name: ${planet.name}</li>
+                  <li>Diameter: ${planet.diameter}</li>
+                  <li>Star: ${planet.star}</li>
+                   <li>Distance from Earth: ${planet.distance}</li>
+                  <li>Number of Moons: ${planet.moons}</li>
                </ol>
-            <img src="${}">
-         </div>
+            <img src="${planet.image}">
          `;
-         }
+         
    });
-*/
+
 
       form.addEventListener("submit", function(){
          /*
