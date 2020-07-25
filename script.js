@@ -3,6 +3,31 @@ window.addEventListener("load", function(){
    let form = document.querySelector("form");
    let readyToTest;
 
+// Destination info
+/*
+   fetch.("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+      return response.json();
+      }).then(function(json){
+         let missionTarget = document.getElementById("missionTarget");
+         let planet = json[0];
+         for (planet) {
+         missionTarget +=`
+         <div class="missionTarget>
+            <h2>Mission Destination</h2>
+               <ol>
+                  <li>Name: ${}</li>
+                  <li>Diameter: ${}</li>
+                  <li>Star: ${}</li>
+                   <li>Distance from Earth: ${}</li>
+                  <li>Number of Moons: ${}</li>
+               </ol>
+            <img src="${}">
+         </div>
+         `;
+         }
+   });
+*/
+
       form.addEventListener("submit", function(){
          /*
          console.log(`For pilotInput, the value is ${pilotInput.value} and the type of the value is ${typeof pilotInput.value}.`);
@@ -101,6 +126,7 @@ window.addEventListener("load", function(){
                   event.preventDefault();
                }
                // Printing out the values to see that we get what's expected
+               /*
                console.log(`For pilotInput, the value is ${pilotInput.value} and the type of the value is ${typeof pilotInput.value}.`);
                console.log(`For coPilotInput, the value is ${coPilotInput.value} and the type of the value is ${typeof coPilotInput.value}.`);
                console.log(`For massInput, the value is ${massInput.value} and the type of the value is ${typeof massInput.value}.`);
@@ -112,6 +138,7 @@ window.addEventListener("load", function(){
                console.log(`readytotest is ${readyToTest}`);
                // console.log("here's testedTests:");
                // console.log(testedTests);
+               */
 
    
                // faulty input styling and content
