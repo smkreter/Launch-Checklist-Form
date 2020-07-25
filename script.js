@@ -12,17 +12,21 @@ window.addEventListener("load", function(){
              */
 
 
-   // Variables
+   // Variables - Inputs
 
    let pilotInput = document.getElementById("pilotName");
    let coPilotInput = document.getElementById("copilotName");
    let fuelInput = document.getElementById("fuelLevel");
    let massInput = document.getElementById("cargoMass");
+
+   // Variables - Display
+
    let faultyItems = document.getElementById("faultyItems");
+   let launchStatus = document.getElementById("launchStatus");
+
    let pilotStatus = document.getElementById("pilotStatus");
    let copilotStatus = document.getElementById("copilotStatus");
    let fuelStatus = document.getElementById("fuelStatus");
-   let launchStatus = document.getElementById("launchStatus");
    let cargoStatus = document.getElementById("cargoStatus");
 
    // Validation Test Objects
@@ -114,20 +118,25 @@ window.addEventListener("load", function(){
                   if (readyToTest === true) {
                         faultyItems.style.visibility = "visible";
                         pilotStatus.innerHTML = `Pilot ${pilotInput.value} is ready for launch`;
-                        copilotStatus.innerHTML = `Co-Pilot ${copilotStatus.value} is ready for launch`;  
+                        copilotStatus.innerHTML = `Co-Pilot ${coPilotInput.value} is ready for launch`;  
                            // change stuff based on the inputs
-                           if (fuelInput.value < 10000) {
-                              fuelStatus.innerHTML = "Fuel level not high enough for launch, get more fuel";
+                           if ( (massInput.value > 10000) || (fuelInput.value < 10000) ) {
                               launchStatus.style.color = "red";
-                              launchStatus.innerHTML = "Don't Launch Yet Jeez" 
+                              launchStatus.innerHTML = "Don't Launch Yet Jeez"    
+                              if (massInput.value > 10000) {
+                                 cargoStatus.innerHTML = "Too much stuff to launch, put stuff back";                                       
+                              }   
+                              if (fuelInput.value < 10000) {
+                                    fuelStatus.innerHTML = "Fuel level not high enough for launch, get more fuel";
+                                 }
+                          
+                           } else {
+                              launchStatus.style.color = "green";
+                              launchStatus.innerHTML = "All right launch away"
                            }
-                           if (massInput.value > 10000) {
-                              cargoStatus.innerHTML = "Too much stuff to launch, put some stuff back, you do not need so many outfits";
-                              launchStatus.style.color = "red";
-                              launchStatus.innerHTML = "Don't Launch Yet Jeez"                               
-                           }
-                                       
 
+                                       
+// if ready to test is true
                                }                                       
                            
 
