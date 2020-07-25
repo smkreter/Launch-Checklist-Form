@@ -21,6 +21,9 @@ window.addEventListener("load", function(){
    let faultyItems = document.getElementById("faultyItems");
    let pilotStatus = document.getElementById("pilotStatus");
    let copilotStatus = document.getElementById("copilotStatus");
+   let fuelStatus = document.getElementById("fuelStatus");
+   let launchStatus = document.getElementById("launchStatus");
+   let cargoStatus = document.getElementById("cargoStatus");
 
    // Validation Test Objects
 
@@ -111,7 +114,19 @@ window.addEventListener("load", function(){
                   if (readyToTest === true) {
                         faultyItems.style.visibility = "visible";
                         pilotStatus.innerHTML = `Pilot ${pilotInput.value} is ready for launch`;
-                        copilotStatus.innerHTML = `Co-Pilot ${copilotStatus.value} is ready for launch`;                    
+                        copilotStatus.innerHTML = `Co-Pilot ${copilotStatus.value} is ready for launch`;  
+                           // change stuff based on the inputs
+                           if (fuelInput.value < 10000) {
+                              fuelStatus.innerHTML = "Fuel level not high enough for launch, get more fuel";
+                              launchStatus.style.color = "red";
+                              launchStatus.innerHTML = "Don't Launch Yet Jeez" 
+                           }
+                           if (massInput.value > 10000) {
+                              cargoStatus.innerHTML = "Too much stuff to launch, put some stuff back, you do not need so many outfits";
+                              launchStatus.style.color = "red";
+                              launchStatus.innerHTML = "Don't Launch Yet Jeez"                               
+                           }
+                                       
 
                                }                                       
                            
